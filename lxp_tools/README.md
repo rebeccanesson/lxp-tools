@@ -161,6 +161,7 @@ sections:
 |---|---|---|---|
 | `HLXP_HTML` | `HLXP_HTML` | `body` (block scalar HTML) | `title` |
 | `HLXP_REFLECTION` | `HLXP_REFLECTION` | `prompt` | `title`, `shared` (bool), `input_output` (`INPUT_OUTPUT`/`INPUT_ONLY`/`OUTPUT_ONLY`), `min_word_count`, `local_id` (string, target for `seed_from`), `seed_from` (other reflection's `local_id`) |
+| `LXP_FILE_UPLOAD` | `LXP_FILE_UPLOAD` | `prompt` (block scalar HTML) | `title`, `max_file_count` (default 1), `input_output` (default `INPUT_OUTPUT`), `description` |
 | `HLXP_SINGLE_CHOICE_QUESTION` | `HLXP_SINGLE_CHOICE_QUESTION` | `stem`, `answers: [{label, correct}]` (exactly one `correct: true`) | `title`, `feedback_type` (`targeted`/`general`), `general_feedback` |
 | `HLXP_MULTIPLE_CHOICE_QUESTION` | `HLXP_MULTIPLE_CHOICE_QUESTION` | `stem`, `answers` (one or more `correct: true`) | `title` |
 | `CDA_VIDEO` | `CDA_VIDEO` | (none) | `title` (Mux upload IDs are filled in post-import) |

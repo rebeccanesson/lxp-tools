@@ -184,6 +184,20 @@ def emit_hlxp_reflection(*, prompt: str, title: str = "", shared: bool = False,
     return _common_element_fields(etype="HLXP_REFLECTION", data=data, te_version="1.8.3", **common)
 
 
+def emit_lxp_file_upload(*, prompt: str, title: str = "", max_file_count: int = 1,
+                         input_output: str = "INPUT_OUTPUT", description: str = "",
+                         **common):
+    data = {
+        "title": title,
+        "width": 12,
+        "prompt": {"content": prompt},
+        "description": description,
+        "maxFileCount": max_file_count,
+        "inputOutputType": input_output,
+    }
+    return _common_element_fields(etype="LXP_FILE_UPLOAD", data=data, te_version="1.2.3", **common)
+
+
 def emit_hlxp_question(*, etype: str, stem: str, answers: list[dict], title: str = "",
                        feedback_type: str | None = None, general_feedback: str = "",
                        **common):
@@ -621,6 +635,16 @@ class CourseBuilder:
                 title=item.get("title", ""),
                 feedback_type=item.get("feedback_type"),
                 general_feedback=item.get("general_feedback", ""),
+                **common,
+            )
+        elif etype == "LXP_FILE_UPLOAD":
+            self._attach_element(
+                element_emitter=emit_lxp_file_upload,
+                prompt=item["prompt"],
+                title=item.get("title", ""),
+                max_file_count=item.get("max_file_count", 1),
+                input_output=item.get("input_output", "INPUT_OUTPUT"),
+                description=item.get("description", ""),
                 **common,
             )
         elif etype == "CDA_VIDEO":

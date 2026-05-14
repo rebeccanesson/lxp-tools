@@ -236,6 +236,23 @@ class Emitter:
         out.append(f"{ind}  prompt: {_block_scalar(prompt, ind + '    ')}")
         return out
 
+    def emit_lxp_file_upload(self, e, indent: int):
+        ind = " " * indent
+        d = e["data"]
+        out = [f"{ind}- element: LXP_FILE_UPLOAD"]
+        title = d.get("title", "")
+        if title:
+            out.append(f"{ind}  title: {_yaml_str(title)}")
+        max_fc = d.get("maxFileCount", 1)
+        if max_fc != 1:
+            out.append(f"{ind}  max_file_count: {max_fc}")
+        io = d.get("inputOutputType", "INPUT_OUTPUT")
+        if io != "INPUT_OUTPUT":
+            out.append(f"{ind}  input_output: {io}")
+        prompt = (d.get("prompt") or {}).get("content", "")
+        out.append(f"{ind}  prompt: {_block_scalar(prompt, ind + '    ')}")
+        return out
+
     def emit_hlxp_question(self, e, indent: int):
         ind = " " * indent
         d = e["data"]
@@ -336,6 +353,7 @@ class Emitter:
         t = e["type"]
         if t == "HLXP_HTML":           return self.emit_hlxp_html(e, indent)
         if t == "HLXP_REFLECTION":     return self.emit_hlxp_reflection(e, indent)
+        if t == "LXP_FILE_UPLOAD":     return self.emit_lxp_file_upload(e, indent)
         if t == "HLXP_SINGLE_CHOICE_QUESTION":   return self.emit_hlxp_question(e, indent)
         if t == "HLXP_MULTIPLE_CHOICE_QUESTION": return self.emit_hlxp_question(e, indent)
         if t == "CDA_VIDEO":           return self.emit_cda_video(e, indent)

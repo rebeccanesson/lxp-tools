@@ -154,7 +154,7 @@ What NOT to parallelize: round-trip validation (it needs iterative diff-and-fix 
 
 ### `export_to_yaml.py` fails on unknown element type
 
-The converter knows: `HLXP_HTML`, `HLXP_REFLECTION`, `HLXP_SINGLE_CHOICE_QUESTION`, `HLXP_MULTIPLE_CHOICE_QUESTION`, `CDA_VIDEO`, `LXP_ADV_HTML`, `IMAGE`. If LXP added a new element type, the converter raises `ValueError: Unknown element type: ...`. Surface that to the user and add a corresponding `emit_*` method (mirroring the existing ones) before re-running.
+The converter knows: `HLXP_HTML`, `HLXP_REFLECTION`, `LXP_FILE_UPLOAD`, `HLXP_SINGLE_CHOICE_QUESTION`, `HLXP_MULTIPLE_CHOICE_QUESTION`, `CDA_VIDEO`, `LXP_ADV_HTML`, `IMAGE`. If LXP added a new element type, the converter raises `ValueError: Unknown element type: ...`. Surface that to the user and add a corresponding `emit_*` method (mirroring the existing ones) before re-running.
 
 ### `build_export.py` fails on `Asset source not found`
 
