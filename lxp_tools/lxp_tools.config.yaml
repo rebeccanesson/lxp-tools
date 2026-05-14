@@ -1,0 +1,47 @@
+# lxp_tools — per-course configuration template
+# =====================================================================
+# This file is the BUNDLED FALLBACK shipped with lxp_tools/. The tools
+# prefer a project-level config at <project_root>/lxp_tools.config.yaml,
+# and only fall back to this template if no project-level config exists.
+#
+# To configure a course:
+#   1. Copy this file to <project_root>/lxp_tools.config.yaml.
+#   2. Edit the values below for your course.
+#
+# Paths are relative to the project root (the directory that contains
+# the project-level lxp_tools.config.yaml).
+#
+# All keys are optional. The values below are sensible defaults.
+
+# ---------- Course identity (used by build_export.py) ----------
+course_title: "Course"             # appears as repository.name in the export
+course_color: "#2196F3"            # appears as repository.data.color
+repo_id: 9000                      # int; LXP doesn't care for upload, but stable
+                                   # repo_id makes consecutive builds diff-friendly
+
+# ---------- Filesystem layout ----------
+# Where per-segment YAMLs live. One subdirectory per module.
+build_plans_dir: "lxp_build_plans"
+
+# Where built export folders + tarballs go.
+export_output_dir: "lxp_export"
+
+# Roots that the converter scans to resolve LXP_ADV_HTML widget assets
+# (sha256 prefixes in the export → readable source paths). Order matters:
+# earlier roots are preferred for ties.
+interactives_dirs:
+  - "Interactives"
+  - "course_outline"
+
+# ---------- Module/segment naming ----------
+# Used by:
+#   - build_export.py to label root FOLDER activities ("Module 1", ...)
+#   - export_to_yaml.py to organize output into Module<N>/ subdirs
+# {n} is the 1-based module ordinal.
+module_folder_pattern: "Module{n}"     # subdir under build_plans_dir
+module_name_pattern: "Module {n}"      # FOLDER.data.name in export
+
+# ---------- Manifest schema source ----------
+# Static LXP manifest schema block, vendored from a working LXP export.
+# Almost no course needs to change this. Path is relative to lxp_tools/.
+manifest_schema_file: "manifest_schema.json"

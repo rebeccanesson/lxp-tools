@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# Per-course outputs, when a course's repo is set up alongside or via symlink.
+lxp_export/
+lxp_build_plans/

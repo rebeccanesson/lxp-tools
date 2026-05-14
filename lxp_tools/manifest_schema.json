@@ -1,0 +1,757 @@
+{
+  "id": "LONG_HLXP_SCHEMA",
+  "workflowId": "LXP_WORKFLOW",
+  "name": "Long Form LXP Course",
+  "meta": [
+    {
+      "type": "RADIO_GROUP",
+      "key": "defaultLock",
+      "label": "Default learner access to course content (can be overridden per section)",
+      "value": false,
+      "items": [
+        {
+          "label": "Locked \u2013 learners must complete each item before proceeding",
+          "value": true
+        },
+        {
+          "label": "Unlocked \u2013 learners can access any material at any time",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "RADIO_GROUP",
+      "key": "defaultRequireContent",
+      "label": "Default for requiring course content (can be overridden per section)",
+      "value": false,
+      "items": [
+        {
+          "label": "All sections required",
+          "value": true
+        },
+        {
+          "label": "No sections required",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "FILE",
+      "key": "posterImage",
+      "label": "Poster image",
+      "placeholder": "Click to upload a poster image",
+      "icon": "mdi-image",
+      "validate": {
+        "ext": [
+          "jpg",
+          "jpeg",
+          "png"
+        ]
+      },
+      "hideOnCreate": true,
+      "showPreview": true
+    },
+    {
+      "type": "TEXTAREA",
+      "key": "posterImageAlt",
+      "label": "Poster image alt text",
+      "rows": 1,
+      "hideOnCreate": true
+    },
+    {
+      "type": "COLOR",
+      "key": "color",
+      "label": "Label color",
+      "colors": [
+        [
+          "#F44336",
+          "#E91E63"
+        ],
+        [
+          "#9C27B0",
+          "#673AB7"
+        ],
+        [
+          "#3F51B5",
+          "#2196F3"
+        ],
+        [
+          "#03A9F4",
+          "#00BCD4"
+        ],
+        [
+          "#009688",
+          "#4CAF50"
+        ],
+        [
+          "#FF9800",
+          "#FF5722"
+        ]
+      ],
+      "hideOnCreate": true
+    }
+  ],
+  "structure": [
+    {
+      "type": "LONG_HLXP_SCHEMA/FOLDER",
+      "label": "Folder",
+      "rootLevel": true,
+      "color": "#5187C7",
+      "isTrackedInWorkflow": true,
+      "subLevels": [
+        "LONG_HLXP_SCHEMA/FOLDER",
+        "LONG_HLXP_SCHEMA/PAGE"
+      ],
+      "relationships": [],
+      "meta": [
+        {
+          "key": "name",
+          "type": "TEXTAREA",
+          "label": "Name",
+          "placeholder": "Click to add...",
+          "validate": {
+            "required": true,
+            "min": 2,
+            "max": 250
+          }
+        }
+      ],
+      "defaultMeta": {}
+    },
+    {
+      "type": "LONG_HLXP_SCHEMA/PAGE",
+      "label": "Page",
+      "rootLevel": true,
+      "color": "#08A9AD",
+      "isTrackedInWorkflow": true,
+      "contentContainers": [
+        "SECTION_CONTAINER"
+      ],
+      "subLevels": [],
+      "relationships": [],
+      "meta": [
+        {
+          "key": "name",
+          "type": "TEXTAREA",
+          "label": "Name",
+          "placeholder": "Click to add...",
+          "validate": {
+            "required": true,
+            "min": 2,
+            "max": 250
+          }
+        }
+      ],
+      "defaultMeta": {}
+    }
+  ],
+  "contentContainers": [
+    {
+      "templateId": "LONG_FORM_SECTION_CONTAINER",
+      "type": "SECTION_CONTAINER",
+      "label": "Section Container",
+      "required": true,
+      "config": {
+        "subcontainerOptions": {
+          "SECTION": {
+            "label": "Section",
+            "icon": "mdi-card-text-outline",
+            "elementTypes": [
+              "HLXP_HTML",
+              "CDA_VIDEO",
+              "IMAGE",
+              "HLXP_PDF",
+              "LXP_EMBED",
+              "LXP_LTI",
+              "JODIT_HTML",
+              "LXP_ADV_HTML",
+              "LXP_CONTAINER_CANARY",
+              "HLXP_REFLECTION",
+              "LXP_LIST",
+              "LXP_FREE_ENTRY_TABLE",
+              "HLXP_POLL",
+              "LXP_RATING_SCALE",
+              "LXP_WORD_CLOUD",
+              "LXP_CATEGORIZATION",
+              "LXP_RANKING",
+              "LXP_FILTERED_PRP",
+              "LXP_FILE_UPLOAD",
+              "HBSO_PRODUCTION_FRONTIER",
+              "HBSO_TWO_BY_TWO_PLOT",
+              "HBSO_KALTURA_MEDIA_PLAYER",
+              "HBSO_DIGITAL_COST_ANALYSIS",
+              "HBSO_SOCIAL_SURPLUS",
+              "HBSO_MARKETS_INTERACTIVE_1",
+              "HBSO_ALUMINUM_INTERACTIVE",
+              "HBSO_AMGEN_INTUITION_BUILDER",
+              "HBSO_BUTTERFLAKE",
+              "HBSO_DIGITAL_PRINT_COST_ANALYSIS",
+              "HBSO_PRISONERS_DILEMMA",
+              "HBSO_HOTELLING",
+              "HBSO_EXPERIMENTS",
+              "HBSO_AUCTIONS",
+              "HBSO_PRICE_DISCRIMINATION",
+              "HBSO_ELASTICITY",
+              "HBSO_VENTURE_CAPITAL_VALUATION",
+              "HBSO_VALUE_MAP",
+              "HBSO_AI_APP_CONTAINER",
+              "HBSO_VALUE_STICK",
+              "HBSO_CORRELATION",
+              "HBSO_AQUIFER_SIMULATION",
+              "HBSO_SPREADSHEET",
+              "HBSO_EQUATION_BASED_MULTIPLE_CHOICE",
+              "HBSO_TE_AETA",
+              "HBSO_JOURNAL_ENTRY_BUILDER",
+              "HBSO_TE_JDOT",
+              "HBSO_NETWORK_ASSESSMENT",
+              "HGSE_SWOOSH"
+            ],
+            "categories": [
+              {
+                "name": "Content Display Teaching Elements",
+                "types": [
+                  "HLXP_HTML",
+                  "CDA_VIDEO",
+                  "IMAGE",
+                  "HLXP_PDF",
+                  "LXP_EMBED",
+                  "LXP_LTI",
+                  "JODIT_HTML",
+                  "LXP_ADV_HTML",
+                  "LXP_CONTAINER_CANARY"
+                ]
+              },
+              {
+                "name": "Learner Submission Teaching Elements",
+                "types": [
+                  "HLXP_REFLECTION",
+                  "LXP_LIST",
+                  "LXP_FREE_ENTRY_TABLE",
+                  "HLXP_POLL",
+                  "LXP_RATING_SCALE",
+                  "LXP_WORD_CLOUD",
+                  "LXP_CATEGORIZATION",
+                  "LXP_RANKING",
+                  "LXP_FILTERED_PRP",
+                  "LXP_FILE_UPLOAD"
+                ]
+              },
+              {
+                "name": "HBS Online Teaching Elements",
+                "types": [
+                  "HBSO_PRODUCTION_FRONTIER",
+                  "HBSO_TWO_BY_TWO_PLOT",
+                  "HBSO_KALTURA_MEDIA_PLAYER",
+                  "HBSO_DIGITAL_COST_ANALYSIS",
+                  "HBSO_SOCIAL_SURPLUS",
+                  "HBSO_MARKETS_INTERACTIVE_1",
+                  "HBSO_ALUMINUM_INTERACTIVE",
+                  "HBSO_AMGEN_INTUITION_BUILDER",
+                  "HBSO_BUTTERFLAKE",
+                  "HBSO_DIGITAL_PRINT_COST_ANALYSIS",
+                  "HBSO_PRISONERS_DILEMMA",
+                  "HBSO_HOTELLING",
+                  "HBSO_EXPERIMENTS",
+                  "HBSO_AUCTIONS",
+                  "HBSO_PRICE_DISCRIMINATION",
+                  "HBSO_ELASTICITY",
+                  "HBSO_VENTURE_CAPITAL_VALUATION",
+                  "HBSO_VALUE_MAP",
+                  "HBSO_AI_APP_CONTAINER",
+                  "HBSO_VALUE_STICK",
+                  "HBSO_CORRELATION",
+                  "HBSO_AQUIFER_SIMULATION",
+                  "HBSO_SPREADSHEET",
+                  "HBSO_EQUATION_BASED_MULTIPLE_CHOICE",
+                  "HBSO_TE_AETA",
+                  "HBSO_JOURNAL_ENTRY_BUILDER",
+                  "HBSO_TE_JDOT",
+                  "HBSO_NETWORK_ASSESSMENT"
+                ]
+              },
+              {
+                "name": "HGSE Teaching Elements",
+                "types": [
+                  "HGSE_SWOOSH"
+                ]
+              }
+            ],
+            "containers": [
+              "CEK_QUESTION_SET",
+              "EXPAND_CONTAINER",
+              "ASSIGNMENT",
+              "REVIEW_CONTAINER_INPUT",
+              "REVIEW_CONTAINER_OUTPUT"
+            ]
+          },
+          "CEK_QUESTION_SET": {
+            "label": "Question Set",
+            "icon": "mdi-head-question-outline",
+            "elementTypes": [
+              "HLXP_SINGLE_CHOICE_QUESTION",
+              "HLXP_MULTIPLE_CHOICE_QUESTION",
+              "HLXP_MATCHING_QUESTION",
+              "HLXP_HTML",
+              "LXP_CATEGORIZATION",
+              "LXP_NUMERIC"
+            ],
+            "categories": [
+              {
+                "name": "Teaching Elements",
+                "types": [
+                  "HLXP_SINGLE_CHOICE_QUESTION",
+                  "HLXP_MULTIPLE_CHOICE_QUESTION",
+                  "HLXP_MATCHING_QUESTION",
+                  "HLXP_HTML",
+                  "LXP_CATEGORIZATION",
+                  "LXP_NUMERIC"
+                ]
+              }
+            ]
+          },
+          "ASSIGNMENT": {
+            "label": "Assignment",
+            "icon": "mdi-note-check-outline",
+            "elementTypes": [
+              "HLXP_HTML",
+              "LXP_CONTAINER_CANARY",
+              "HLXP_REFLECTION",
+              "LXP_FILE_UPLOAD"
+            ],
+            "categories": [
+              {
+                "name": "Teaching Elements",
+                "types": [
+                  "HLXP_HTML",
+                  "LXP_CONTAINER_CANARY",
+                  "HLXP_REFLECTION",
+                  "LXP_FILE_UPLOAD"
+                ]
+              }
+            ]
+          },
+          "REVIEW_CONTAINER_INPUT": {
+            "label": "Review Input (Give Feedback)",
+            "icon": "mdi-note-search-outline",
+            "tooltip": "The initial version of this container defaults to a Peer Review configuration where learners are required to review 3 peers. In the future, authors can configure this container to require a different number of reviews, or change the review type.",
+            "elementTypes": [
+              "HLXP_HTML",
+              "LXP_ADV_HTML",
+              "HLXP_REFLECTION",
+              "LXP_RATING_SCALE"
+            ],
+            "categories": [
+              {
+                "name": "Teaching Elements",
+                "types": [
+                  "HLXP_HTML",
+                  "LXP_ADV_HTML",
+                  "HLXP_REFLECTION",
+                  "LXP_RATING_SCALE"
+                ]
+              }
+            ]
+          },
+          "REVIEW_CONTAINER_OUTPUT": {
+            "label": "Review Output (Get Feedback)",
+            "icon": "mdi-note-text-outline",
+            "tooltip": "Here, learners receive feedback that was provided via the linked Review Input (Give Feedback) container.",
+            "elementTypes": [],
+            "categories": [
+              {
+                "name": "Teaching Elements",
+                "types": []
+              }
+            ]
+          },
+          "EXPAND_CONTAINER": {
+            "label": "Expand",
+            "icon": "mdi-arrow-expand-vertical",
+            "expandable": true,
+            "elementTypes": [
+              "HLXP_HTML",
+              "CDA_VIDEO",
+              "IMAGE",
+              "HLXP_PDF",
+              "LXP_EMBED",
+              "LXP_LTI",
+              "JODIT_HTML",
+              "LXP_ADV_HTML",
+              "LXP_CONTAINER_CANARY",
+              "HLXP_REFLECTION",
+              "LXP_LIST",
+              "LXP_FREE_ENTRY_TABLE",
+              "HLXP_POLL",
+              "LXP_RATING_SCALE",
+              "LXP_WORD_CLOUD",
+              "LXP_CATEGORIZATION",
+              "LXP_RANKING",
+              "LXP_FILTERED_PRP",
+              "LXP_FILE_UPLOAD",
+              "HBSO_PRODUCTION_FRONTIER",
+              "HBSO_TWO_BY_TWO_PLOT",
+              "HBSO_KALTURA_MEDIA_PLAYER",
+              "HBSO_DIGITAL_COST_ANALYSIS",
+              "HBSO_SOCIAL_SURPLUS",
+              "HBSO_MARKETS_INTERACTIVE_1",
+              "HBSO_ALUMINUM_INTERACTIVE",
+              "HBSO_AMGEN_INTUITION_BUILDER",
+              "HBSO_BUTTERFLAKE",
+              "HBSO_DIGITAL_PRINT_COST_ANALYSIS",
+              "HBSO_PRISONERS_DILEMMA",
+              "HBSO_HOTELLING",
+              "HBSO_EXPERIMENTS",
+              "HBSO_AUCTIONS",
+              "HBSO_PRICE_DISCRIMINATION",
+              "HBSO_ELASTICITY",
+              "HBSO_VENTURE_CAPITAL_VALUATION",
+              "HBSO_VALUE_MAP",
+              "HBSO_AI_APP_CONTAINER",
+              "HBSO_VALUE_STICK",
+              "HBSO_CORRELATION",
+              "HBSO_AQUIFER_SIMULATION",
+              "HBSO_SPREADSHEET",
+              "HBSO_EQUATION_BASED_MULTIPLE_CHOICE",
+              "HBSO_TE_AETA",
+              "HBSO_JOURNAL_ENTRY_BUILDER",
+              "HBSO_TE_JDOT",
+              "HBSO_NETWORK_ASSESSMENT",
+              "HGSE_SWOOSH"
+            ],
+            "categories": [
+              {
+                "name": "Content Display Teaching Elements",
+                "types": [
+                  "HLXP_HTML",
+                  "CDA_VIDEO",
+                  "IMAGE",
+                  "HLXP_PDF",
+                  "LXP_EMBED",
+                  "LXP_LTI",
+                  "JODIT_HTML",
+                  "LXP_ADV_HTML",
+                  "LXP_CONTAINER_CANARY"
+                ]
+              },
+              {
+                "name": "Learner Submission Teaching Elements",
+                "types": [
+                  "HLXP_REFLECTION",
+                  "LXP_LIST",
+                  "LXP_FREE_ENTRY_TABLE",
+                  "HLXP_POLL",
+                  "LXP_RATING_SCALE",
+                  "LXP_WORD_CLOUD",
+                  "LXP_CATEGORIZATION",
+                  "LXP_RANKING",
+                  "LXP_FILTERED_PRP",
+                  "LXP_FILE_UPLOAD"
+                ]
+              },
+              {
+                "name": "HBS Online Teaching Elements",
+                "types": [
+                  "HBSO_PRODUCTION_FRONTIER",
+                  "HBSO_TWO_BY_TWO_PLOT",
+                  "HBSO_KALTURA_MEDIA_PLAYER",
+                  "HBSO_DIGITAL_COST_ANALYSIS",
+                  "HBSO_SOCIAL_SURPLUS",
+                  "HBSO_MARKETS_INTERACTIVE_1",
+                  "HBSO_ALUMINUM_INTERACTIVE",
+                  "HBSO_AMGEN_INTUITION_BUILDER",
+                  "HBSO_BUTTERFLAKE",
+                  "HBSO_DIGITAL_PRINT_COST_ANALYSIS",
+                  "HBSO_PRISONERS_DILEMMA",
+                  "HBSO_HOTELLING",
+                  "HBSO_EXPERIMENTS",
+                  "HBSO_AUCTIONS",
+                  "HBSO_PRICE_DISCRIMINATION",
+                  "HBSO_ELASTICITY",
+                  "HBSO_VENTURE_CAPITAL_VALUATION",
+                  "HBSO_VALUE_MAP",
+                  "HBSO_AI_APP_CONTAINER",
+                  "HBSO_VALUE_STICK",
+                  "HBSO_CORRELATION",
+                  "HBSO_AQUIFER_SIMULATION",
+                  "HBSO_SPREADSHEET",
+                  "HBSO_EQUATION_BASED_MULTIPLE_CHOICE",
+                  "HBSO_TE_AETA",
+                  "HBSO_JOURNAL_ENTRY_BUILDER",
+                  "HBSO_TE_JDOT",
+                  "HBSO_NETWORK_ASSESSMENT"
+                ]
+              },
+              {
+                "name": "HGSE Teaching Elements",
+                "types": [
+                  "HGSE_SWOOSH"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "elementMeta": [
+    {
+      "type": "HLXP_POLL",
+      "relationships": [
+        {
+          "key": "linked",
+          "label": "Input Element",
+          "multiple": false,
+          "placeholder": "Click to select",
+          "filters": [
+            null,
+            null
+          ],
+          "allowedTypes": [
+            "HLXP_POLL"
+          ],
+          "disableSidebarUi": true
+        }
+      ]
+    },
+    {
+      "type": "HLXP_REFLECTION",
+      "relationships": [
+        {
+          "key": "linked",
+          "label": "Input Element",
+          "multiple": false,
+          "placeholder": "Click to select",
+          "filters": [
+            null,
+            null
+          ],
+          "allowedTypes": [
+            "HLXP_REFLECTION"
+          ],
+          "disableSidebarUi": true
+        }
+      ]
+    },
+    {
+      "type": "LXP_LIST",
+      "relationships": [
+        {
+          "key": "linked",
+          "label": "Input Element",
+          "multiple": false,
+          "placeholder": "Click to select",
+          "filters": [
+            null,
+            null
+          ],
+          "allowedTypes": [
+            "LXP_LIST"
+          ],
+          "disableSidebarUi": true
+        }
+      ]
+    },
+    {
+      "type": "LXP_RATING_SCALE",
+      "relationships": [
+        {
+          "key": "linked",
+          "label": "Input Element",
+          "multiple": false,
+          "placeholder": "Click to select",
+          "filters": [
+            null,
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        }
+      ]
+    },
+    {
+      "type": "LXP_FREE_ENTRY_TABLE",
+      "relationships": [
+        {
+          "key": "linked",
+          "label": "Input Element",
+          "multiple": false,
+          "placeholder": "Click to select",
+          "filters": [
+            null,
+            null
+          ],
+          "allowedTypes": [
+            "LXP_FREE_ENTRY_TABLE"
+          ],
+          "disableSidebarUi": true
+        }
+      ]
+    },
+    {
+      "type": "LXP_WORD_CLOUD",
+      "relationships": [
+        {
+          "key": "linked",
+          "label": "Input Element",
+          "multiple": false,
+          "placeholder": "Click to select",
+          "filters": [
+            null,
+            null
+          ],
+          "allowedTypes": [
+            "LXP_WORD_CLOUD"
+          ],
+          "disableSidebarUi": true
+        }
+      ]
+    },
+    {
+      "type": "LXP_FILTERED_PRP",
+      "relationships": [
+        {
+          "key": "tagElement",
+          "label": "Tag Element",
+          "multiple": false,
+          "placeholder": "Click to select",
+          "filters": [
+            null,
+            null,
+            null
+          ],
+          "allowedTypes": [
+            "HLXP_POLL"
+          ],
+          "disableSidebarUi": true
+        },
+        {
+          "key": "entryElement",
+          "label": "Entry Element",
+          "multiple": false,
+          "placeholder": "Click to select",
+          "filters": [
+            null,
+            null,
+            null
+          ],
+          "allowedTypes": [
+            "HLXP_REFLECTION"
+          ],
+          "disableSidebarUi": true
+        }
+      ]
+    },
+    {
+      "type": "HGSE_SWOOSH",
+      "relationships": [
+        {
+          "key": "survey1",
+          "label": "Survey 1",
+          "placeholder": "Choose a prior rating scale",
+          "multiple": false,
+          "filters": [
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        },
+        {
+          "key": "survey2",
+          "label": "Survey 2",
+          "placeholder": "Choose a prior rating scale",
+          "multiple": false,
+          "filters": [
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        },
+        {
+          "key": "survey3",
+          "label": "Survey 3",
+          "placeholder": "Choose a prior rating scale",
+          "multiple": false,
+          "filters": [
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        },
+        {
+          "key": "survey4",
+          "label": "Survey 4",
+          "placeholder": "Choose a prior rating scale",
+          "multiple": false,
+          "filters": [
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        },
+        {
+          "key": "survey5",
+          "label": "Survey 5",
+          "placeholder": "Choose a prior rating scale",
+          "multiple": false,
+          "filters": [
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        },
+        {
+          "key": "survey6",
+          "label": "Survey 6",
+          "placeholder": "Choose a prior rating scale",
+          "multiple": false,
+          "filters": [
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        },
+        {
+          "key": "survey7",
+          "label": "Survey 7",
+          "placeholder": "Choose a prior rating scale",
+          "multiple": false,
+          "filters": [
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        },
+        {
+          "key": "survey8",
+          "label": "Survey 8",
+          "placeholder": "Choose a prior rating scale",
+          "multiple": false,
+          "filters": [
+            null
+          ],
+          "allowedTypes": [
+            "LXP_RATING_SCALE"
+          ],
+          "disableSidebarUi": true
+        }
+      ]
+    }
+  ],
+  "defaultMeta": {}
+}
